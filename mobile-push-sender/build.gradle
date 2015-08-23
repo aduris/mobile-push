@@ -1,0 +1,38 @@
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use 'maven central' for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    mavenCentral()
+}
+
+dependencies {
+	compile fileTree(dir: 'libs', include: ['*.jar'])
+	compile project(':mobile-push-libs')
+	compile 'commons-daemon:commons-daemon:1.0.15'
+	compile 'org.mybatis:mybatis:3.3.0'
+	compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.12'
+	compile 'org.json:json:20140107'
+	compile 'mysql:mysql-connector-java:5.1.36'
+	compile 'junit:junit:4.11'
+}
+
+version = '0.1'
+jar {
+    manifest {
+        attributes 'Title': 'Push Sender', 'Version': version, 'Main-Class': 'mobile.push.sender.main.MainApplication'
+    }
+        
+    //archiveName 'push.jar'
+    dependsOn configurations.runtime
+    from {
+        configurations.compile.collect {it.isDirectory()? it: zipTree(it)}
+    }
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'    
+}
+
+[ compileJava, compileTestJava ]*.options*.encoding = 'UTF-8'
+[ compileJava, compileTestJava ]*.options*.compilerArgs = ['-Xlint:-options']
+
+task listJars << {
+    configurations.compile.each { File file -> println file.name }
+}

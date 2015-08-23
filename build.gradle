@@ -1,0 +1,21 @@
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    
+	sourceCompatibility = 1.7
+	compileJava.options.encoding = 'UTF-8'    
+
+    repositories {
+       mavenCentral()
+    }
+
+    dependencies {
+        testCompile 'junit:junit:4.8.2'
+    }
+
+    version = '1.0'
+
+    jar {
+        manifest.attributes provider: 'ilkyu.choi@gmail.com'
+    }
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<apns>
+		<keystore>/commons-daemon/mobile-push/xxx.p12</keystore>
+		<password>xxx</password>
+		<production>true</production>
+		<threadcount>30</threadcount>    	    
+	</apns>
+	<gcm>
+		<apikey>xxx</apikey>
+		<threadcount>30</threadcount>
+	</gcm>
+</config>

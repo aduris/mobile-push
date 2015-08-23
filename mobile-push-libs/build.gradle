@@ -1,0 +1,8 @@
+dependencies {
+	compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+	compile 'com.googlecode.json-simple:json-simple:1.1.1'
+	compile 'com.github.fernandospr:javapns-jdk16:2.2.1'
+	compile 'commons-configuration:commons-configuration:1.10'
+	compile 'junit:junit:4.11'
+	compile 'log4j:log4j:1.2.17'	
+}
