@@ -11,7 +11,6 @@ public class BizProcessThread extends Thread {
 
 	protected final Logger mLogger = Logger.getLogger(getClass().getName());
 	public BizProcessThread() {
-		mLogger.info("Mobile Push Application Start...");
 	}
 
 	@Override

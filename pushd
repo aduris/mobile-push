@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+#Startup script for pushd
+#
+#description : Start pushd
+#
+#install : chkconfig --levels 235 pushd on
+#
+#Source function library
+. /etc/init.d/functions
+export JAVA_HOME=/usr/local/programming/jdk1.8.0_60
+export DAEMON_HOME=/usr/local/server/daemon/mobile-push
+export PATH=$PATH:$JAVA_HOME/bin:$DAEMON_HOME
+
+#See how we were called
+case "$1" in
+start)
+echo -en "Starting pushd:\n"
+daemon $DAEMON_HOME/pushd.sh start
+echo
+;;
+
+stop)
+echo -en "Shutting down pushd:\n"
+daemon $DAEMON_HOME/pushd.sh stop
+echo
+;;
+
+restart)
+$0 stop
+sleep 2
+$0 start
+;;
+
+*)
+echo "Usage: $0 {start|stop|restart}"
+exit 1
+esac
+
+exit 0
