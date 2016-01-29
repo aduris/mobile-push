@@ -14,20 +14,16 @@ Message Queue로는 가장 범용적이고 간편한 MySQL을 이용합니다.
 
 APNS의 경우, JavaPNS 라이브러리를 기반으로 발송됩니다.
 
-처음 프로젝트를 로드했을때, mobile-push-sender 프로젝트 resource 파일에 config.xml 파일을 수정해주세요.
-
-예를 들어 GCM API키 및 APNS Keystore 및 패스워드, 스레드수등이 설정할수 있습니다.
-
 
 
 # 작업순서
 
-서버단에는 table구성 및 sp를 셋팅해야합니다.
+1. 서버단에는 table구성 및 sp를 셋팅해야합니다.
 
-mobile-push-sender 프로젝트 resource 파일에 config.xml 파일을 수정해주세요. (예를 들어 GCM API키 및 APNS Keystore 및 패스워드등이 설정되어 있습니다.)
+2. mobile-push-sender 프로젝트 resource 파일에 config.xml 파일을 수정해주세요. (예를 들어 GCM API키, APNS Keystore, ThreadCount 및 패스워드등이 설정되어 있습니다.)
 
-log4j.properties 의 로그가 쌓일 디렉토리를 변경하세요.
+3. log4j.properties 의 로그가 쌓일 디렉토리를 변경하세요.
 
-mybatis-config.xml 파일의 DB설정을 변경하세요
+4. mybatis-config.xml 파일의 DB설정을 변경하세요
 
-서버에 배치할때는 daemon으로 설치되며 apache commons daemon으로 동작합니다.
+5. 서버에 배치할때는 daemon으로 설치되며 apache commons daemon으로 동작합니다.
